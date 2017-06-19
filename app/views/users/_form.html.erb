@@ -1,17 +1,38 @@
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: @user %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.label :first_name, 'Nombre(s)' %>
+  <%= f.text_field :first_name, class: 'form-control' %>
+
+  <%= f.label :last_name, 'Apellidos' %>
+  <%= f.text_field :last_name, class: 'form-control' %>
 
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label :password %>
+  <%= f.label :gender, 'Sexo' %><br>
+  <%= f.label :gender_male, 'Masculino' %>
+  <%= f.radio_button :gender, 'male', :checked => true %>
+  <%= f.label :gender_female, 'Femenino' %>
+  <%= f.radio_button :gender, 'female' %>
+
+  <%= f.label :password, 'Contraseña' %>
   <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation, 'Confirmar contraseña' %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.label :birthday, 'Fecha de nacimiento' %>
+  <%= f.date_field :birthday %>
+
+  <%= f.label :country, 'País' %>
+  <%= f.country_select :country, priority_countries: ["MX"], selected: "MX", locale: 'es' %>
+
+  <%= f.label :state, 'Estado' %>
+  <%= select_tag(:state, options_for_select(states_list_mx.map {|k,v|[v,k]})) %>
+
+
+  <%= f.submit 'Crear usuario', class: "btn btn-primary" %>
 <% end %>
+
+<!-- => #<User id: 1, name: "Diana López", email: "dianab_lopez@hotmail.com", password_digest: "$2a$10$5x6Vqoc.P5VTWL/7L/BJgeL/0GC2nBJPf.z38b1Unbm...", remember_digest: nil, activation_digest: "$2a$10$S8j0bWIIOU7psYBeOIDnXumnKD06GM5HO3fljzi.Uvj...", activated: true, activated_at: "2017-06-18 20:32:19", reset_digest: nil, reset_sent_at: nil, admin: true, created_at: "2017-06-18 20:32:19", updated_at: "2017-06-18 20:32:19"> -->

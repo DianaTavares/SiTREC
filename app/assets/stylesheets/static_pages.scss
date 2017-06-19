@@ -1,3 +1,31 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #242a44;
+  color:white;
+}
+
+.footer {
+  margin-top: 0px;
+  height: 40px;
+}
+
+.login {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  h4 {
+    margin-top: 91px;
+  }
+}
+
+.login-alumno {
+  border: 5px solid #f4d03f;
+}
+
+.login-profesor {
+  border: 5px solid #76d7c4;
+}
