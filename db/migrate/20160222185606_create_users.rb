@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime    :birthday
       t.string      :country
       t.string      :state
+      t.string      :school_type
       t.string      :email, unique: true
       t.string      :password_digest
       t.string      :remember_digest
@@ -15,6 +16,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime    :activated_at
       t.string      :reset_digest
       t.datetime    :reset_sent_at
+      t.boolean     :professor, default: false
       t.boolean     :admin, default: false
       t.timestamps  null: false
     end

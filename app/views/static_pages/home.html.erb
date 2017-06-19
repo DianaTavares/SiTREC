@@ -1,44 +1,9 @@
-<div class="row home text-center">
-  <div class="col-md-4" style="border-right: 2px solid white;">
-    <br><br>
-    <h3>¡Bienvenido!</h3>
-    <h4>Indica si eres profesor o estudiante</h4>
-
-    <br><br><br>
-
-    <%= link_to login_path(type: 'alumno') do %>
-      <div class="login login-alumno">
-        <h4>Soy Alumno</h4>
-      </div>
-    <% end %>
-
-    <br><br>
-
-    <%= link_to login_path(type: 'profesor') do %>
-      <div class="login login-profesor">
-        <h4>Soy Profesor</h4>
-      </div>
-    <% end %>
-
-    <br><br><br>
-
-  </div>
-  <div class="col-md-8 text-justify">
-    <br><br>
-    <h3 class="text-center">Plataforma para la creación de Tutores</h3>
-    <h4 class="text-center">(Ejercicios interactivos)</h4>
-    <br>
-    <p>SiTREC viene  de “Sistema de Tutores y Recursos para la Educación en Ciencias”. es una plataforma  donde los profesores pueden crear Tutores, es decir, ejercicios interactivos virtuales, con los que sus estudiantes interactúan para reforzar su aprendizaje en la resolución de ejercicios numéricos.
-    <br>
-    SiTREC es el proyecto doctoral de la estudiante Diana Berenice López Tavares en el posgrado de Tecnología Avanzada del Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA) del Instituto Politécnico Nacional
-    </p>
-    <p>
-      <h4>Ejemplo de tutor</h4>
-      Da click en el tutor para resolver el ejercicio.
-    </p>
-    <p>
-      <h4>¿Cómo se construye un tutor?</h4>
-      Da click en el siguiente link para acceder al manual de creación de tutores. Si aún tienes dudas contáctanos.
-    </p>
-  </div>
-</div>
+<% if logged_in? %>
+  <% if current_user.professor %>
+    <%= render 'logged_in_professor' %>
+  <% else %>
+    <%= render 'logged_in_student' %>
+  <% end %>
+<% else %>
+  <%= render 'not_logged' %>
+<% end %>
